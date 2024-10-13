@@ -12,3 +12,15 @@ export const fetchAllTours = createAsyncThunk(
     }
   }
 );
+
+export const fetchSingleTour = createAsyncThunk(
+  "tourManagement/fetchSingleTour",
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await tourService.fetchSingleTour(id);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);

@@ -8,8 +8,6 @@ const Overview = () => {
   const { tours, isLoading, error } = useSelector(
     (state) => state.tourManagement
   );
-  console.log("Tours ", tours);
-
   useEffect(() => {
     dispatch(fetchAllTours());
   }, [dispatch]);
@@ -18,7 +16,7 @@ const Overview = () => {
     <main className="main">
       <div className="card-container">
         {tours?.tours?.map((el) => (
-          <Card key={el._id} name={el.name} price={el.price} />
+          <Card key={el._id} id={el._id} name={el.name} price={el.price} />
         ))}
       </div>
     </main>

@@ -1,4 +1,6 @@
-const Card = ({ name, price }) => {
+import { Link } from "react-router-dom";
+
+const Card = ({ name, price, id }) => {
   return (
     <div className="card">
       <div className="card__header">
@@ -56,9 +58,9 @@ const Card = ({ name, price }) => {
           <span className="card__footer-value">4.8</span>
           <span className="card__footer-text">rating (12)</span>
         </p>
-        <a href="#" className="btn btn--green btn--small">
+        <Link to={`/${id}`} className="btn btn--green btn--small">
           Details
-        </a>
+        </Link>
       </div>
     </div>
   );
