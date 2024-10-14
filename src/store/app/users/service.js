@@ -7,6 +7,12 @@ const userService = {
       userData
     );
   },
+  signIn: async (loginData) => {
+    return await axios.post(
+      `${import.meta.env.VITE_APP_BACKEND_BASE_URL}users/sign-in`,
+      loginData
+    );
+  },
 };
 
 export default userService;

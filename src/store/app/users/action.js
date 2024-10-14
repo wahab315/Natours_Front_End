@@ -13,3 +13,17 @@ export const signUpUser = createAsyncThunk(
     }
   }
 );
+
+export const signInUser = createAsyncThunk(
+  "userManagement/signInUser",
+  async (loginData, { rejectWithValue }) => {
+    try {
+      const response = await userService.signIn(loginData);
+      const { token } = response.data;
+      localStorage.setItem("token", token);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
