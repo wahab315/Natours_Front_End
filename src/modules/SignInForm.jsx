@@ -27,6 +27,9 @@ const SignInForm = () => {
   const onSubmit = (values) => {
     console.log("Sign In form data", values);
     dispatch(signInUser(values));
+
+console.log(signInUser());
+
   };
 
   return (
@@ -71,7 +74,6 @@ const SignInForm = () => {
 
             <button
               type="submit"
-              disabled={!formik.isValid || formik.isSubmitting}
               className="submit-button"
             >
               Sign In
